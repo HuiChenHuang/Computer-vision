@@ -158,7 +158,33 @@ ELU: -2 ~ 10
 `Loss Function + Penalty (L1 or L2)`
 
 ## Differnce between L1與L2
-● L1 : 優先將不重要的特徵的權重降為0 (特徵選取)
-● L2會優先將所有的權重減小 (大的權重會產生更大的Penalty)
+● L1 : 優先將`不重要的特徵的權重降為0` (特徵選取)
+● L2 : 優先將所有的`權重減小` (大的權重會產生更大的Penalty)
+***L1和L2都會使模型使用較小的權重***
 
+## Dropout (學習更可靠的特徵)
+● 在訓練過程中，隨機關閉某一層的一些節點
+● 測試模型時，會使用所有的節點來做預測
 
+## Overfitting的原因：沒有足夠的訓練資料 => 使用Data Augmentation可以解決這個問題 (Keras [Callback] 和 Pytorch [手動實作])
+○ 翻轉 (水平/垂直)   ○ 亮度和對比   ○ 旋轉
+○ 縮放              ○ 裁切         ○ 扭曲
+
+## Early Stopping
+設定一個threshold，告訴模型如果在接下來的P 個Epochs (each epoch willsave the weight )都沒有更好的結果，就停止訓練
+
+## Batch Normalization怎麼運作
+● each Mini-Batch計算`mean`和`STD`以及進行`標準化`
+● 假如有使用Dropout，層的順序為：
+○ Conv -> BacthNorm -> ReLU -> Dropout
+
+## Regularization小建議
+● 不要一開始就使用Regularization (建立Baseline Model)
+● Dropout和Batch Norm會`增加訓練時間`
+● Dropout: `不要在Softmax Function 之前使用`
+● 很`簡單`的`模型``不太需要使用Regularization`
+● 更多Epochs
+● 如果`L2 Penalty太高`，模型可能會`Underfitting`
+
+# Week 7: 進階影像視覺模型
+LeNet:
