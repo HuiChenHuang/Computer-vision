@@ -137,10 +137,28 @@ ELU: -2 ~ 10
 ![https://ithelp.ithome.com.tw/upload/images/20241028/201516812sB09W2mHR.png](https://ithelp.ithome.com.tw/upload/images/20241028/201516812sB09W2mHR.png)
 ![https://ithelp.ithome.com.tw/upload/images/20241028/20151681H5s6jXvNJF.png](https://ithelp.ithome.com.tw/upload/images/20241028/20151681H5s6jXvNJF.png)
 
-## 避免Overfitting
+## Overfitting
+### 降低Overfitting以及增加Generalization (Generalization代表模型在沒見過的資料上的表現)
+### 原因: 過度訓練、訓練資料太少、使用太多Features、或使用太複雜的模型
+### 解決辦法: 使用Regularization 限制模型的複雜度，讓模型學習正確的特徵, `增加訓練資料`或`降低模型複雜度`
 ○ 更多資料？
 ○ 更大更深的模型？
 ○ 更多Epochs?
 
-## 降低Overfitting以及增加Generalization (Generalization代表模型在沒見過的資料上的表現)
-過度訓練、訓練資料太少、使用太多Features、或使用太複雜的模型
+## Regularization Methods (LLDDEB)
+● L1 & L2 Regularization
+● Drop Out
+● Data Augmentation
+● Early Stopping
+● Batch Normalization
+
+## L1 and L2 Regularization 
+● 使模型使用較小的參數 (weights and biases)
+● 避免特定的節點產生過大的影響
+`Loss Function + Penalty (L1 or L2)`
+
+## Differnce between L1與L2
+● L1 : 優先將不重要的特徵的權重降為0 (特徵選取)
+● L2會優先將所有的權重減小 (大的權重會產生更大的Penalty)
+
+
