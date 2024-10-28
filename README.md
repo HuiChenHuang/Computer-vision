@@ -122,6 +122,6 @@ ELU: -2 ~ 10
 ---
  
 # Week 3:
-
+![https://ithelp.ithome.com.tw/upload/images/20241028/20151681rC2He86XSm.png](https://ithelp.ithome.com.tw/upload/images/20241028/20151681rC2He86XSm.png)
 
 
