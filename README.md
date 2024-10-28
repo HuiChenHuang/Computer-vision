@@ -54,6 +54,26 @@ https://ithelp.ithome.com.tw/articles/10296810
 ● 在高維度資料下表現不佳
 ● 無法處理非線性關係
 
-## PCA (降維)
+## PCA (降維: 二維 ---> 一維 (新空間（稱為主成分, 是資料中變異性最大的方向）))
+● 保持資料主要信息的同時，減少特徵數量
+
+## PCA X Computer Vision
+1.圖像降維 (不需要考慮圖像色彩 ex.邊緣偵測), (灰階圖像可以減少計算量，加快訓練速度)
+2.圖像去噪 
+
+## PCA 缺點 (線性降維技術)
+● 對非線性資料的處理有限
+● 訊息遺失 (判斷細節與特徵表現不佳(降維時減少了資料的維度))
+
+## Activation function
+Sigmoid: 0 ~ 1
+tanh: -1 ~ 1
+RELU: 0 ~ 10
+Leaky ReLU: -1 ~ 10
+ELU: -2 ~ 10
+
+## Classification task
+● 二元分類 -> Sigmoid 
+● 多類別分類 -> Softmax
 
 
