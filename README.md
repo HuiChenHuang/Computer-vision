@@ -124,4 +124,16 @@ ELU: -2 ~ 10
 # Week 3:
 ![https://ithelp.ithome.com.tw/upload/images/20241028/20151681rC2He86XSm.png](https://ithelp.ithome.com.tw/upload/images/20241028/20151681rC2He86XSm.png)
 
+#  Week 6:
+## 基本的評估指標
+● Training Loss
+● Training Accuracy 
+● Test/Validation Loss
+● Test/Validation Accuracy
+
+## Confusion Matrix 容易預測錯誤的類別 (etc. 3 預測錯為 8)
+![https://ithelp.ithome.com.tw/upload/images/20241028/20151681uHVrG4fawf.png](https://ithelp.ithome.com.tw/upload/images/20241028/20151681uHVrG4fawf.png)
+![https://ithelp.ithome.com.tw/upload/images/20241028/20151681eDEljYn1gv.png](https://ithelp.ithome.com.tw/upload/images/20241028/20151681eDEljYn1gv.png)
+![https://ithelp.ithome.com.tw/upload/images/20241028/201516812sB09W2mHR.png](https://ithelp.ithome.com.tw/upload/images/20241028/201516812sB09W2mHR.png)
+![https://ithelp.ithome.com.tw/upload/images/20241028/20151681H5s6jXvNJF.png](https://ithelp.ithome.com.tw/upload/images/20241028/20151681H5s6jXvNJF.png)
 
