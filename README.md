@@ -137,3 +137,10 @@ ELU: -2 ~ 10
 ![https://ithelp.ithome.com.tw/upload/images/20241028/201516812sB09W2mHR.png](https://ithelp.ithome.com.tw/upload/images/20241028/201516812sB09W2mHR.png)
 ![https://ithelp.ithome.com.tw/upload/images/20241028/20151681H5s6jXvNJF.png](https://ithelp.ithome.com.tw/upload/images/20241028/20151681H5s6jXvNJF.png)
 
+## 避免Overfitting
+○ 更多資料？
+○ 更大更深的模型？
+○ 更多Epochs?
+
+## 降低Overfitting以及增加Generalization (Generalization代表模型在沒見過的資料上的表現)
+過度訓練、訓練資料太少、使用太多Features、或使用太複雜的模型
