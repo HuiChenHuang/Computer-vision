@@ -40,3 +40,20 @@ https://ithelp.ithome.com.tw/articles/10296810
  3. 多分類問題較複雜 (SVM 原本是二分類, “一對一”或“一對多”增加計算的複雜性)
 
 ## 2. KNN (監督式學習, 分類) :距離來判斷資料的類別
+![https://ithelp.ithome.com.tw/upload/images/20241028/20151681sxLgOSMogL.png](https://ithelp.ithome.com.tw/upload/images/20241028/20151681sxLgOSMogL.png)
+
+若結果為各半, 判給離X較近的類別(為避免這個情況,K通常會設為奇數)
+
+### 距離method:
+1. 歐基里德距離
+2. 曼哈頓距離
+3. 明氏距離
+
+## KNN 缺點
+● 計算效率低
+● 在高維度資料下表現不佳
+● 無法處理非線性關係
+
+## PCA (降維)
+
+
