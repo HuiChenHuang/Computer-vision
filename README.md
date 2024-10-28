@@ -46,12 +46,16 @@ https://ithelp.ithome.com.tw/articles/10296810
 
 ### 距離method:
 1. 歐基里德距離
+   
 2. 曼哈頓距離
+   
 3. 明氏距離
 
 ## KNN 缺點
 ● 計算效率低
+
 ● 在高維度資料下表現不佳
+
 ● 無法處理非線性關係
 
 ## PCA (降維: 二維 ---> 一維 (新空間（稱為主成分, 是資料中變異性最大的方向）))
@@ -59,10 +63,12 @@ https://ithelp.ithome.com.tw/articles/10296810
 
 ## PCA X Computer Vision
 1.圖像降維 (不需要考慮圖像色彩 ex.邊緣偵測), (灰階圖像可以減少計算量，加快訓練速度)
+
 2.圖像去噪 
 
 ## PCA 缺點 (線性降維技術)
 ● 對非線性資料的處理有限
+
 ● 訊息遺失 (判斷細節與特徵表現不佳(降維時減少了資料的維度))
 
 ## Activation function
@@ -79,6 +85,7 @@ ELU: -2 ~ 10
 
 ## Classification task
 ● 二元分類 -> Sigmoid 
+
 ● 多類別分類 -> Softmax
 
 ## 訓練損失 (training loss) : 
@@ -102,6 +109,7 @@ ELU: -2 ~ 10
 
 ## RMSProps : 參數更新的平方梯度均值來調整Learning rate
 ● 梯度變化較大 -> 減少Learning rate，防止步伐過大跳過最佳解
+
 ● 梯度變化較小 -> 增大學習率，加速收斂
 
 ## Metrics
@@ -127,8 +135,11 @@ ELU: -2 ~ 10
 #  Week 6:
 ## 基本的評估指標
 ● Training Loss
+
 ● Training Accuracy 
+
 ● Test/Validation Loss
+
 ● Test/Validation Accuracy
 
 ## Confusion Matrix 容易預測錯誤的類別 (etc. 3 預測錯為 8)
@@ -142,32 +153,44 @@ ELU: -2 ~ 10
 ### 原因: 過度訓練、訓練資料太少、使用太多Features、或使用太複雜的模型
 ### 解決辦法: 使用Regularization 限制模型的複雜度，讓模型學習正確的特徵, `增加訓練資料`或`降低模型複雜度`
 ○ 更多資料？
+
 ○ 更大更深的模型？
+
 ○ 更多Epochs?
 
 ## Regularization Methods (LLDDEB)
 ● L1 & L2 Regularization
+
 ● Drop Out
+
 ● Data Augmentation
+
 ● Early Stopping
+
 ● Batch Normalization
 
 ## L1 and L2 Regularization 
 ● 使模型使用較小的參數 (weights and biases)
+
 ● 避免特定的節點產生過大的影響
+
 `Loss Function + Penalty (L1 or L2)`
 
 ## Differnce between L1與L2
 ● L1 : 優先將`不重要的特徵的權重降為0` (特徵選取)
+
 ● L2 : 優先將所有的`權重減小` (大的權重會產生更大的Penalty)
+
 ***L1和L2都會使模型使用較小的權重***
 
 ## Dropout (學習更可靠的特徵)
 ● 在訓練過程中，隨機關閉某一層的一些節點
+
 ● 測試模型時，會使用所有的節點來做預測
 
 ## Overfitting的原因：沒有足夠的訓練資料 => 使用Data Augmentation可以解決這個問題 (Keras [Callback] 和 Pytorch [手動實作])
 ○ 翻轉 (水平/垂直)   ○ 亮度和對比   ○ 旋轉
+
 ○ 縮放              ○ 裁切         ○ 扭曲
 
 ## Early Stopping
@@ -175,15 +198,22 @@ ELU: -2 ~ 10
 
 ## Batch Normalization怎麼運作
 ● each Mini-Batch計算`mean`和`STD`以及進行`標準化`
+
 ● 假如有使用Dropout，層的順序為：
+
 ○ Conv -> BacthNorm -> ReLU -> Dropout
 
 ## Regularization小建議
 ● 不要一開始就使用Regularization (建立Baseline Model)
+
 ● Dropout和Batch Norm會`增加訓練時間`
+
 ● Dropout: `不要在Softmax Function 之前使用`
+
 ● 很`簡單`的`模型``不太需要使用Regularization`
+
 ● 更多Epochs
+
 ● 如果`L2 Penalty太高`，模型可能會`Underfitting`
 
 # Week 7: 進階影像視覺模型
@@ -195,9 +225,13 @@ ELU: -2 ~ 10
 ![https://ithelp.ithome.com.tw/upload/images/20241028/201516815xtKMv8qOu.png](https://ithelp.ithome.com.tw/upload/images/20241028/201516815xtKMv8qOu.png)
 
 ## VGGNet : “典型CNN” 結構 (龐大的參數量, High Accuracy, slow to train)
+
 ● Top-5 Accuracy in ImageNet (1000 classes)
+
 ● 多個 Conv Layers 後接 Pooling Layer
+
 ● Filters/Feature Maps 的數量逐漸增加，直到 FC Layers
+
 ### ● `VGG16` has `13` Conv Layers with `3` FC Layers
 ### ● `VGG19` has `16` Conv Layers with 3` FC Layers
 | **VGGNet 優缺點** |                          |
@@ -209,9 +243,13 @@ ELU: -2 ~ 10
 
 ## ResNet : (一般的CNN, 線性序列, 當模型很深時，效能會下降)
    ## Exploding and Vanishing Gradients
+   
    ● 在 N 層的深度網路中，必須將 N 個導數相乘才能執行梯度更新
+   
    ● 導數很大，梯度會呈指數增長或“爆炸”
+   
    ● 導數很小，它們就會呈指數下降或“消失”
+   
 >>> How to solve ?  --->  將前一層的輸入連接到前一層的輸出
 
 P17
