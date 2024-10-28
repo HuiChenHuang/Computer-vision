@@ -91,9 +91,7 @@ ELU: -2 ~ 10
 
 ## Learning rate (要調整的Hyperparameter)
 ● 梯度下降, 權重更新多少?
-
 ● 太大 >> 跳過最佳解
-
 ● 太小 >> 無法到達最佳解
 
 
