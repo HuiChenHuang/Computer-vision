@@ -187,4 +187,28 @@ ELU: -2 ~ 10
 ● 如果`L2 Penalty太高`，模型可能會`Underfitting`
 
 # Week 7: 進階影像視覺模型
-LeNet:
+## LeNet:
+2 conv. layers & max pool > 2nd max pool > flatten > 120 FC layer > 84 FC layer > output
+
+## AlexNet :
+● 共有 8 層：前 5 層為Convolutional Layers，後 3 層為 FC Layers
+![https://ithelp.ithome.com.tw/upload/images/20241028/201516815xtKMv8qOu.png](https://ithelp.ithome.com.tw/upload/images/20241028/201516815xtKMv8qOu.png)
+
+## VGGNet : “典型CNN” 結構 (龐大的參數量, High Accuracy, slow to train)
+● Top-5 Accuracy in ImageNet (1000 classes)
+● 多個 Conv Layers 後接 Pooling Layer
+● Filters/Feature Maps 的數量逐漸增加，直到 FC Layers
+### ● `VGG16` has `13` Conv Layers with `3` FC Layers
+### ● `VGG19` has `16` Conv Layers with 3` FC Layers
+| **VGGNet 優缺點** |                          |
+|------------------|--------------------------|
+| **優點**         | - “深度”網路設計           |
+|                  | - 規範的結構               |
+| **缺點**         | - 計算需求大               |
+|                  | - 參數冗餘                 |
+
+
+
+
+
+
