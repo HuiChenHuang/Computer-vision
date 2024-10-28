@@ -91,7 +91,36 @@ ELU: -2 ~ 10
 
 ## Learning rate (要調整的Hyperparameter)
 ● 梯度下降, 權重更新多少?
+
 ● 太大 >> 跳過最佳解
+
 ● 太小 >> 無法到達最佳解
+
+## 優化器 (Optimizer): 根據訓練損失調整模型參數
+- 隨機梯度下降 (SGD): 不穩定性可能會幫助模型脫離local minima
+- 自適應梯度 (Adam): 結合了動量（Momentum）和 RMSProp 的優點; 自適應地調整Learning rate
+
+## RMSProps : 參數更新的平方梯度均值來調整Learning rate
+● 梯度變化較大 -> 減少Learning rate，防止步伐過大跳過最佳解
+● 梯度變化較小 -> 增大學習率，加速收斂
+
+## Metrics
+### ● Precision (精確率): True positive (猜對真實也對 / 真實有錯也有對)
+### ● Recall (召回率) : 實際為positive的結果 (有猜對, 也有猜錯)
+### ● Accuracy (準確率)：(所有猜對的部分: True negaative, True Positive)
+![https://ithelp.ithome.com.tw/upload/images/20241028/20151681OgRrHmxkeQ.png](https://ithelp.ithome.com.tw/upload/images/20241028/20151681OgRrHmxkeQ.png)
+
+## 需要設定的超參數
+---
+*- 每一層*
+    - Number of nodes
+    - Activation function
+- Optimizer
+- Learning rate
+- Training loss
+- Metrics
+---
+ 
+
 
 
