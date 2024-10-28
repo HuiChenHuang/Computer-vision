@@ -66,14 +66,34 @@ https://ithelp.ithome.com.tw/articles/10296810
 ● 訊息遺失 (判斷細節與特徵表現不佳(降維時減少了資料的維度))
 
 ## Activation function
+
 Sigmoid: 0 ~ 1
+
 tanh: -1 ~ 1
+
 RELU: 0 ~ 10
+
 Leaky ReLU: -1 ~ 10
+
 ELU: -2 ~ 10
 
 ## Classification task
 ● 二元分類 -> Sigmoid 
 ● 多類別分類 -> Softmax
+
+## 訓練損失 (training loss) : 
+衡量神經網路`預測結果與真實值的差距`，並根據結果來調整神經網路的`權重`
+- 分類任務： 交叉熵 (cross-entropy)
+- 迴歸任務：Mean squared error (MSE)
+
+### Gradient Descent
+● 根據Loss的梯度優化(更新)神經網路的權重，讓Loss最小化
+
+## Learning rate (要調整的Hyperparameter)
+● 梯度下降, 權重更新多少?
+
+● 太大 >> 跳過最佳解
+
+● 太小 >> 無法到達最佳解
 
 
