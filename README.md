@@ -200,14 +200,22 @@ ELU: -2 ~ 10
 ● Filters/Feature Maps 的數量逐漸增加，直到 FC Layers
 ### ● `VGG16` has `13` Conv Layers with `3` FC Layers
 ### ● `VGG19` has `16` Conv Layers with 3` FC Layers
-| **VGGNet 優缺點**                           |
+| **VGGNet 優缺點** |                          |
 |------------------|--------------------------|
 | **優點**         | - “深度”網路設計           |
 |                  | - 規範的結構               |
 | **缺點**         | - 計算需求大               |
 |                  | - 參數冗餘                 |
 
+## ResNet : (一般的CNN, 線性序列, 當模型很深時，效能會下降)
+   ## Exploding and Vanishing Gradients
+   ● 在 N 層的深度網路中，必須將 N 個導數相乘才能執行梯度更新
+   ● 導數很大，梯度會呈指數增長或“爆炸”
+   ● 導數很小，它們就會呈指數下降或“消失”
+>>> How to solve ?  --->  將前一層的輸入連接到前一層的輸出
 
+P17
+## 
 
 
 
