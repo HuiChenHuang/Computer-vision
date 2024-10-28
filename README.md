@@ -200,7 +200,7 @@ ELU: -2 ~ 10
 ● Filters/Feature Maps 的數量逐漸增加，直到 FC Layers
 ### ● `VGG16` has `13` Conv Layers with `3` FC Layers
 ### ● `VGG19` has `16` Conv Layers with 3` FC Layers
-| **VGGNet 優缺點**                            |
+| **VGGNet 優缺點**                           |
 |------------------|--------------------------|
 | **優點**         | - “深度”網路設計           |
 |                  | - 規範的結構               |
