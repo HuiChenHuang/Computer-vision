@@ -384,6 +384,11 @@ ELU: -2 ~ 10
    ○ 使用了 MobileNetV2 的 MBConv（Mobile Inverted Bottleneck Convolution）
    
    ○ MBConv ≈ depthwise convolution + pointwise convolution + skip connection (D+P+S)
+   
+| 優缺點 | 描述 |
+|--------|------|
+| **優點** | - 更高的性能/計算效率<br> - 適應多種應用場景（B0~B7） |
+| **缺點** | - 設計相對複雜（例如依賴於 NAS）<br> - 模型訓練難度較高（特別是 B6 和 B7）<br> - 特定於影像分類的優化 |
 
 
 ## DenseNet : `vanishing gradients(梯度消失)`
