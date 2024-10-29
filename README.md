@@ -279,10 +279,10 @@ ELU: -2 ~ 10
 
 ● `MobileNet 適合手機的模型`：
 
-**Depthwise Separable Convolutions (深度可分離卷積)**
+#### **Depthwise Separable Convolutions (深度可分離卷積)**
 ![https://ithelp.ithome.com.tw/upload/images/20241029/20151681s7s1RSMQ7u.png](https://ithelp.ithome.com.tw/upload/images/20241029/20151681s7s1RSMQ7u.png)
 
-**Two Hyper-Parameters (兩個超參數)** (兩個超參數來降低模型大小)
+#### **Two Hyper-Parameters (兩個超參數)** (兩個超參數來降低模型大小)
 >
 >    ● `Width Multiplier`： 縮減每一層的深度 (filters數量)
 >
