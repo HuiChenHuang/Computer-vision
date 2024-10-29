@@ -253,10 +253,14 @@ ELU: -2 ~ 10
 > How to solve ?  --->  將前一層的輸入連接到前一層的輸出
 ![https://ithelp.ithome.com.tw/upload/images/20241028/20151681pWK2IUqvSB.png](https://ithelp.ithome.com.tw/upload/images/20241028/20151681pWK2IUqvSB.png)
 
-ResNet34 和 ResNet50 具有多個連續的 *3x3 卷積層* , 有不同大小特徵圖
-ResNet的輸出尺寸保持不變（padding=1, stride =1）
-ResNet 由多個 residual units 建構，
-ResNet 甚至不需要 FC Layers, 使模型更深，學習更多特徵
+   ● ResNet34 和 ResNet50 具有多個連續的 *3x3 卷積層* , 有不同大小特徵圖
+   
+   ● ResNet的輸出尺寸保持不變（padding=1, stride =1）
+   
+   ● ResNet 由多個 residual units 建構，
+   
+   ● ResNet 甚至不需要 FC Layers, 使模型更深，學習更多特徵
+
 | **分類** | **說明**                               |
 |----------|----------------------------------------|
 | 優點     | 有效訓練深層網絡                       |
@@ -267,9 +271,13 @@ ResNet 甚至不需要 FC Layers, 使模型更深，學習更多特徵
 
 ## MobileNet
 ● 輕量版 CNN，能在嵌入式裝置或手機
+
 ● 推論 (Inference) 速度相對較慢 (i.e. forward propagation) 
+
 ● 低的運算能力：○ 訓練較小的模型  ○ 壓縮模型
+
 ● MobileNet 適合手機的模型：
---- ○ Depthwise Separable Convolutions
---- ○ Two Hyper-Parameters
+
+---○ Depthwise Separable Convolutions---
+---○ Two Hyper-Parameters---
 
