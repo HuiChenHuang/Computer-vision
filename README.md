@@ -377,25 +377,35 @@ Inception Design:  `Stem > Inception Block > Auxiliary Classifier (非每個版�
    ○ MBConv ≈ depthwise convolution + pointwise convolution + skip connection (D+P+S)
 
 
-## DenseNet
+## DenseNet : `vanishing gradients(梯度消失)`
 ● higher accuracy than ResNet with fewer parameters
 
-Motivations
-● Training Deep CNNs is problematic due to `vanishing gradients(梯度消失)`
-● 因為深度網路的路徑變得很長，梯度在完成路徑之前就變為零（vanish）
-● DenseNets 透過使用 “Collective Knowledge” 的概念來解決這個問題，其中每一層都接收來自所有先前層的信息
-● 每層接收來自所有先前層的信息
-● 同一個 Dense Block 裡的特徵圖大小不變
+● `Training Deep CNNs` is problematic due to `vanishing gradients(梯度消失)`
+
+● 因為深度網路的`路徑變得很長`，`梯度`在完成路徑之前就變`為零（vanish）`
+
+● DenseNets 透過使用 **“Collective Knowledge”** 的概念來解決這個問題，其中每一層都**接收來自所有先前層的信息** (同一個 Dense Block 裡的特徵圖大小不變)
+![https://ithelp.ithome.com.tw/upload/images/20241029/20151681Q0krylSU2I.png](https://ithelp.ithome.com.tw/upload/images/20241029/20151681Q0krylSU2I.png)
+
 ● DenseNet Composition Layer 包含 Batch Norm、ReLU 和 3x3 Conv Layer
-Bottleneck Layer : BN-ReLU 1x1 Conv is done before BN-ReLU 3x3 Layer
-Multiple Dense Blocks with Transition Layer
-● 使用 1x1 Conv 和 2x2 Average Pooling 作為兩個連續密集區塊之間的 “過渡層”
+![https://ithelp.ithome.com.tw/upload/images/20241029/20151681TFNej0hbHm.png](https://ithelp.ithome.com.tw/upload/images/20241029/20151681TFNej0hbHm.png)
+
+● Bottleneck Layer : BN-ReLU 1x1 Conv is done before BN-ReLU 3x3 Layer
+![https://ithelp.ithome.com.tw/upload/images/20241029/20151681809XYpLKwc.png](https://ithelp.ithome.com.tw/upload/images/20241029/20151681809XYpLKwc.png)
+
+● Multiple Dense Blocks with Transition Layer : 使用 1x1 Conv 和 2x2 Average Pooling 作為兩個連續密集區塊之間的 “過渡層”
+![https://ithelp.ithome.com.tw/upload/images/20241029/20151681b3rYLPFNW8.png](https://ithelp.ithome.com.tw/upload/images/20241029/20151681b3rYLPFNW8.png)
+
 
 ## ImageNet - ILSVR : 是評估新的 CNN 模型時最常用的基準
-● Size
-WordNet Hierarchy
-幫助 AI 理解圖片裡的資訊
+● 優點: 
 
-## Rank-N or Top-N Accuracy
-更多空間的評估分類器準確性的方法
-考慮機率最高的前 N 個類別
+> 1. Size
+>
+> 2. WordNet Hierarchy
+>
+> 3. 幫助 AI 理解圖片裡的資訊
+
+## Rank-N or Top-N Accuracy : 更多空間的評估分類器準確性的方法
+● 考慮機率最高的前 N 個類別
+
