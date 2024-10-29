@@ -276,8 +276,22 @@ ELU: -2 ~ 10
 
 ● 低的運算能力：○ 訓練較小的模型  ○ 壓縮模型
 
-● MobileNet 適合手機的模型：
+● 使用 Pointwise Convolutions 來得到相同的輸出形狀 (對輸出進行線性組合)
 
->Depthwise Separable Convolutions
+● `MobileNet 適合手機的模型`：
+
+>**Depthwise Separable Convolutions (深度可分離卷積)**
 > 
->Two Hyper-Parameters
+>**Two Hyper-Parameters (兩個超參數)**
+>
+>    ● `Width Multiplier`： 縮減每一層的深度 (filters數量)
+>
+>    ● `Resolution Multiplier`：減少輸入影像的大小，從而減少每個後續層的大小    
+
+| **分類** | **說明**                                |
+|----------|-----------------------------------------|
+| 優點     | 輕量級                                  |
+|          | 高效的卷積操作                          |
+|          | 靈活性：可調整 width multiplier 和 resolution multiplier |
+| 缺點     | 準確度相對較低                          |
+
