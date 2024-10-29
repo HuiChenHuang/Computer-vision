@@ -295,3 +295,107 @@ ELU: -2 ~ 10
 |          | 靈活性：可調整 width multiplier 和 resolution multiplier |
 | 缺點     | 準確度相對較低                          |
 
+## Inception Network (解決 Filter Size 的選擇問題)
+● 同時使用幾種不同大小的 Conv Filters
+
+●  ‘same’ padding 和 stride=1 來保持尺寸大小的一致性
+
+● 執行所有大小的 Filters，甚至是 Max Pool，然後將它們堆疊在一起, 使得模型能夠`學習高階`和`低階特徵`的組合
+
+● `**Heavy Computation**` : Use 1x1 Convolutions to reduce the computation cost
+
+● `**Bottleneck Layer**` : 先縮小再放大 (少了 10 倍的計算成本)
+
+Inception Design:  `Stem > Inception Block > Auxiliary Classifier (非每個版本都有)`
+
+| **分類** | **說明**                                              |
+|----------|-------------------------------------------------------|
+| 優點     | 多尺度特徵提取能力                                    |
+|          | 高效的計算資源利用（透過 1x1 卷積）                   |
+|          | 深層網絡的可訓練性（如輔助分類器）                    |
+| 缺點     | 結構較為複雜                                          |
+|          | 難以移植到資源有限的設備                              |
+|          | 參數和架構選擇複雜                                    |
+
+## SqueezeNet (架構由一個獨立的 Conv Layer 和後面的 8 個 Fire Module 組成)
+● 維持相同 accuracy 情況下，使用較小的 CNN 架構
+
+     ○ 只需要少量的communication across servers
+     
+     ○ 使用更少的頻寬來透過雲端更快地更新模型
+     
+     ○ 更適合部署在嵌入式系統
+
+● 它的`參數比 AlexNet 少 50 倍`，執行`速度快 3 倍`
+
+● 將 3x3 `過濾器替換為 1x1` - 參數比 3x3 過濾器少 9 倍
+
+● 將輸入到 3x3 Filters 的`頻道數減少` - 每層中參數的數量為（輸入頻道 * Filters 數 * 3 * 3）
+
+● `晚一點`才在網路中進行 `Downsampling`，以便卷積層具有`更大的 Feature Maps`
+
+### Fire Module - Squeeze and Expand Layers
+![https://ithelp.ithome.com.tw/upload/images/20241029/20151681xDzw4MtQtD.png](https://ithelp.ithome.com.tw/upload/images/20241029/20151681xDzw4MtQtD.png)
+
+| **分類** | **說明**                                                |
+|----------|---------------------------------------------------------|
+| 優點     | 極小的模型大小                                          |
+|          | 相對高的分類性能                                        |
+|          | 方便移植到低資源設備                                    |
+| 缺點     | 性能略低於更大的網絡（相較於 VGGNet、ResNet）          |
+|          | 特徵提取能力有限（例如空間特徵）                        |
+|          | 相對難以擴展到更大、更深的網路（相較於 ResNet、DenseNet） |
+
+## EfficientNet : Compound Scaling, Grid Search (網格搜尋), EfficientNet-B0 Architecture
+
+● 透過`增加深度（層數）或寬度（Filters 數量）`來實現`縮放`
+
+● `需要`手動調整`並不容易達到最優結果
+
+● expand CNN Model : **Compound scaling and EfficientNet-B0** 
+
+### Compound Scaling
+
+● 使用一組`固定的縮放係數統一縮放每個維度（寬度、深度、解析度）`
+
+● EfficientNet 系列模型能夠達到 **state-of-the-art accurary**，並且**效率提高 10 倍**
+
+● 平衡所有維度的縮放的最佳整體效能
+
+### Grid Search (網格搜尋)
+● 使用網格搜尋尋找在固定資源（例如 2 倍以上的 FLOPS）下，對 `Baseline Network 進行不同維度縮放`之間的關係
+
+● 找到每個維度最合適的`縮放係數`(可用在任何CNN), 將 Baseline Network 擴大到所需的目標模型大小
+
+### EfficientNet-B0 Architecture
+● `模型縮放`的有效性在很大程度上`取決於 Baseline Network`
+
+● EfficientNet-B0 是使用 Google 的 (`NAS`, Neural Architecture Search) 技術設計 (平衡計算資源和性能)
+
+   ○ 使用了 MobileNetV2 的 MBConv（Mobile Inverted Bottleneck Convolution）
+   
+   ○ MBConv ≈ depthwise convolution + pointwise convolution + skip connection (D+P+S)
+
+
+## DenseNet
+● higher accuracy than ResNet with fewer parameters
+
+Motivations
+● Training Deep CNNs is problematic due to `vanishing gradients(梯度消失)`
+● 因為深度網路的路徑變得很長，梯度在完成路徑之前就變為零（vanish）
+● DenseNets 透過使用 “Collective Knowledge” 的概念來解決這個問題，其中每一層都接收來自所有先前層的信息
+● 每層接收來自所有先前層的信息
+● 同一個 Dense Block 裡的特徵圖大小不變
+● DenseNet Composition Layer 包含 Batch Norm、ReLU 和 3x3 Conv Layer
+Bottleneck Layer : BN-ReLU 1x1 Conv is done before BN-ReLU 3x3 Layer
+Multiple Dense Blocks with Transition Layer
+● 使用 1x1 Conv 和 2x2 Average Pooling 作為兩個連續密集區塊之間的 “過渡層”
+
+## ImageNet - ILSVR : 是評估新的 CNN 模型時最常用的基準
+● Size
+WordNet Hierarchy
+幫助 AI 理解圖片裡的資訊
+
+## Rank-N or Top-N Accuracy
+更多空間的評估分類器準確性的方法
+考慮機率最高的前 N 個類別
