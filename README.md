@@ -319,12 +319,12 @@ ELU: -2 ~ 10
 
 | **分類** | **說明**                                              |
 |----------|-------------------------------------------------------|
-| 優點     | 多尺度特徵提取能力                                    |
+| 優點     | `多尺度特徵提取`能力                                    |
 |          | 高效的計算資源利用（透過 1x1 卷積）                   |
 |          | 深層網絡的可訓練性（如輔助分類器）                    |
 | 缺點     | 結構較為複雜                                          |
 |          | 難以移植到資源有限的設備                              |
-|          | 參數和架構選擇複雜                                    |
+|          | 參數和`架構選擇複雜`                                    |
 
 ## SqueezeNet (架構由一個獨立的 Conv Layer 和後面的 8 個 Fire Module 組成)
 ● 維持相同 accuracy 情況下，使用較小的 CNN 架構
@@ -361,9 +361,9 @@ ELU: -2 ~ 10
 
 ● `需要`手動調整`並不容易達到最優結果
 
-● expand CNN Model : **Compound scaling and EfficientNet-B0** 
+● expand CNN Model : **Compound scaling** and **EfficientNet-B0** 
 
-### Compound Scaling
+### Compound Scaling : 
 
 ● 使用一組`固定的縮放係數統一縮放每個維度（寬度、深度、解析度）`
 
