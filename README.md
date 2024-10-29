@@ -1,6 +1,5 @@
 # Computer-vision
 W1,3,6,7 總整理
-https://ithelp.ithome.com.tw/articles/10296810
 # Week1:電腦視覺
 ### 電腦視覺:
 是一個**跨學科**的研究領域-從數字圖像或視頻中解釋和理解視覺信息的能力
